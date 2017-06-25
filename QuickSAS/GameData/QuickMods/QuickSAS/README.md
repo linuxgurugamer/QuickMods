@@ -48,6 +48,9 @@ Delete the QuickMods/QuickSAS folder in your KSP/GameData folder.
 
 #### Changelog
 
+v1.13.9 - 2017.06.25
+* Fix: Corrected a lang var
+
 v1.13 - 2017.05.31
 * New: Added support of the stock localisation,
 * New: Deleted support of the LanguagePatches,

@@ -189,7 +189,7 @@ namespace QuickSAS {
 			QSettings.Instance.WarpToEnhanced = GUILayout.Toggle (QSettings.Instance.WarpToEnhanced, Localizer.Format("quicksas_warpTime"), GUILayout.Width (400));
 			GUILayout.EndHorizontal ();
 			GUILayout.BeginHorizontal ();
-			GUILayout.Box (Localizer.Format("quicksas_keyShortCuts"), GUILayout.Height (30));
+			GUILayout.Box (Localizer.Format("quicksas_keyShortcuts"), GUILayout.Height (30));
 			GUILayout.EndHorizontal ();
 			QKey.DrawConfigKey (QKey.Key.Current);
 			QKey.DrawConfigKey (QKey.Key.Prograde);
