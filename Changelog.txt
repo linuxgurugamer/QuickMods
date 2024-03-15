@@ -1,6 +1,6 @@
 ﻿#### Changelog
 
-QuickMods 1.4.0.2
+QuickMods 1.4.0.13
 QuickBrake 1.4.0.9
 QuickContracts 1.3.0.9
 QuickCursorHider 1.1.0.8
