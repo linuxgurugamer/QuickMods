@@ -66,10 +66,10 @@ namespace QuickMute.Object {
 
         public void Restore() {
             if (GameSettings.Ready) {
-                GameSettings.MASTER_VOLUME = master;
+                GameSettings.MASTER_VOLUME = Mathf.Clamp(master, 0, 1);
                 GameSettings.SaveSettings();
             } else {
-                QSettings.Instance.Master = master;
+                QSettings.Instance.Master = Mathf.Clamp(master, 0, 1);
                 QSettings.Instance.Save();
             }
         }
