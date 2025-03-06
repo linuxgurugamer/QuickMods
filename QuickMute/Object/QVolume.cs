@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 */
 
+using System;
 using UnityEngine;
 
 namespace QuickMute.Object {
@@ -61,11 +62,16 @@ namespace QuickMute.Object {
         }
 
         public void Apply() {
+            Debug.Log("QuickMute.Apply, isMute: " + isMute + ", master: " + master);
+            Debug.Log("StackTrace: " +  Environment.StackTrace);
             GameSettings.MASTER_VOLUME = isMute ? 0 : master;
         }
 
         public void Restore() {
             if (GameSettings.Ready) {
+                Debug.Log("QuickMute.Restore, isMute: " + isMute + ", master: " + master);
+                Debug.Log("StackTrace: " + Environment.StackTrace);
+
                 GameSettings.MASTER_VOLUME = master;
                 GameSettings.SaveSettings();
             } else {

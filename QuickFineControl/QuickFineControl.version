@@ -1,6 +1,6 @@
 {
   "NAME": "QuickFineControl",
-  "URL": "http://ksp.spacetux.net/avc/QuickFineControl",
+  "URL": "https://raw.githubusercontent.com/linuxgurugamer/QuickMods/refs/heads/master/QuickFineControl/QuickFineControl.version",
   "CHANGE_LOG_URL": "https://raw.githubusercontent.com/linuxgurugamer/QuickMods/master/QuickFineControl/README.md",
   "DOWNLOAD": "http://spacedock.info/mod/784/QuickFineControl",
   "GITHUB": {
@@ -11,7 +11,7 @@
     "MAJOR": 1,
     "MINOR": 1,
     "PATCH": 0,
-    "BUILD": 8
+    "BUILD": 9
   },
   "KSP_VERSION": {
     "MAJOR": 1,
@@ -22,5 +22,10 @@
     "MAJOR": 1,
     "MINOR": 12,
     "PATCH": 0
+  },
+  "KSP_VERSION_MAX": {
+    "MAJOR": 1,
+    "MINOR": 12,
+    "PATCH": 99
   }
 }
