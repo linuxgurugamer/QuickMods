@@ -44,7 +44,7 @@ namespace QuickMute {
         [Persistent] internal bool Level = true;
         [Persistent] internal bool Muted = false;
         [Persistent] internal bool ScrollLevel = true;
-        [Persistent] internal float Master = 0;
+        [Persistent] internal float Master = 1;
 
 		public void Save() {
 			ConfigNode _temp = ConfigNode.CreateConfigFromObject(this, new ConfigNode());
