@@ -1,6 +1,6 @@
 {
   "NAME": "QuickContracts",
-  "URL": "http://ksp.spacetux.net/avc/QuickContracts",
+  "URL": "https://raw.githubusercontent.com/linuxgurugamer/QuickMods/refs/heads/master/QuickContracts/QuickContracts.version",
   "CHANGE_LOG_URL": "https://raw.githubusercontent.com/linuxgurugamer/QuickMods/master/QuickContracts/README.md",
   "DOWNLOAD": "http://spacedock.info/mod/104/QuickContracts",
   "GITHUB": {
@@ -11,7 +11,7 @@
     "MAJOR": 1,
     "MINOR": 3,
     "PATCH": 0,
-    "BUILD": 8
+    "BUILD": 10
   },
   "KSP_VERSION": {
     "MAJOR": 1,
@@ -22,5 +22,10 @@
     "MAJOR": 1,
     "MINOR": 12,
     "PATCH": 0
+  },
+  "KSP_VERSION_MAX": {
+    "MAJOR": 1,
+    "MINOR": 12,
+    "PATCH": 99
   }
 }

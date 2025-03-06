@@ -1,6 +1,6 @@
 {
   "NAME": "QuickMute",
-  "URL": "http://ksp.spacetux.net/avc/QuickMute",
+  "URL": "https://raw.githubusercontent.com/linuxgurugamer/QuickMods/refs/heads/master/QuickMute/QuickMute.version",
   "CHANGE_LOG_URL": "https://raw.githubusercontent.com/linuxgurugamer/QuickMods/master/QuickMute/README.md",
   "DOWNLOAD": "http://spacedock.info/mod/108/QuickMute",
   "GITHUB": {
@@ -11,7 +11,7 @@
     "MAJOR": 1,
     "MINOR": 4,
     "PATCH": 0,
-    "BUILD": 8
+    "BUILD": 9
   },
   "KSP_VERSION": {
     "MAJOR": 1,
@@ -22,5 +22,10 @@
     "MAJOR": 1,
     "MINOR": 12,
     "PATCH": 0
+  },
+  "KSP_VERSION_MAX": {
+    "MAJOR": 1,
+    "MINOR": 12,
+    "PATCH": 99
   }
 }

@@ -56,7 +56,7 @@ namespace QuickRevert {
 			Log ("Start", "QStockToolbar");
         }
 			
-        void OnDestroy()
+        new void OnDestroy()
         {
             toolbarControl.OnDestroy();
             Destroy(toolbarControl);

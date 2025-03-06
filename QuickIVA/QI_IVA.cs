@@ -20,6 +20,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpaceTuxUtility;
 
 namespace QuickIVA {
 	public partial class QIVA {
@@ -327,42 +328,71 @@ namespace QuickIVA {
 				Log ("We are in IVA!", "QIVA");
 				return;
 			}
-			if (vessel.GetCrewCount () > 0) {
-				if (VesselHasCrewAlive (vessel)) {
-					bool _VesselhasOnlyPlaceholder;
-					Kerbal _IVAKerbal;
-					if (VesselHasSeatTaken (vessel, out _IVAKerbal, out _VesselhasOnlyPlaceholder)) {
-						if (EVAKerbal != null) {
-							if (vessel.GetVesselCrew ().Contains (EVAKerbal.protoCrewMember)) {
-								_IVAKerbal = EVAKerbal;
-							} else {
-								EVAKerbal = null;
+			if (probeControlRoomInstalled)
+			{
+				Log("SetCameraIVA: " + CameraManager.Instance.SetCameraIVA(), "QIVA", true);
+
+                isGoneIVA = false;
+				EVAKerbal = null;
+			}
+			else
+			{
+				if (vessel.GetCrewCount() > 0)
+				{
+					if (VesselHasCrewAlive(vessel))
+					{
+						bool _VesselhasOnlyPlaceholder;
+						Kerbal _IVAKerbal;
+						if (VesselHasSeatTaken(vessel, out _IVAKerbal, out _VesselhasOnlyPlaceholder))
+						{
+							if (EVAKerbal != null)
+							{
+								if (vessel.GetVesselCrew().Contains(EVAKerbal.protoCrewMember))
+								{
+									_IVAKerbal = EVAKerbal;
+								}
+								else
+								{
+									EVAKerbal = null;
+								}
+							}
+							if (_IVAKerbal != null)
+							{
+								if (KerbalIsOnVessel(vessel, _IVAKerbal))
+								{
+									isGoneIVA = CameraManager.Instance.SetCameraIVA(_IVAKerbal, true);
+									Log(string.Format("Go IVA on {0}({1}) experienceTrait: {2}, partName: ({3}){4}", _IVAKerbal.crewMemberName, _IVAKerbal.protoCrewMember.seatIdx, _IVAKerbal.protoCrewMember.experienceTrait.Title, _IVAKerbal.protoCrewMember.seat.part.partInfo.category, _IVAKerbal.protoCrewMember.seat.part.name), "QIVA");
+									ScrMsg(false, _IVAKerbal);
+								}
+								else
+								{
+									isGoneIVA = CameraManager.Instance.SetCameraIVA();
+									Log("Go IVA (first Kerbal selected)", "QIVA");
+								}
+							}
+							else
+							{
+								isGoneIVA = CameraManager.Instance.SetCameraIVA();
 							}
 						}
-						if (_IVAKerbal != null) {
-							if (KerbalIsOnVessel (vessel, _IVAKerbal)) {
-								isGoneIVA = CameraManager.Instance.SetCameraIVA (_IVAKerbal, true);
-								Log (string.Format ("Go IVA on {0}({1}) experienceTrait: {2}, partName: ({3}){4}", _IVAKerbal.crewMemberName, _IVAKerbal.protoCrewMember.seatIdx, _IVAKerbal.protoCrewMember.experienceTrait.Title, _IVAKerbal.protoCrewMember.seat.part.partInfo.category, _IVAKerbal.protoCrewMember.seat.part.name), "QIVA");
-								ScrMsg (false, _IVAKerbal);
-							} else {
-								isGoneIVA = CameraManager.Instance.SetCameraIVA ();
-								Log ("Go IVA (first Kerbal selected)", "QIVA");
-							}
-						} else {
-							isGoneIVA = CameraManager.Instance.SetCameraIVA ();
+						else if (_VesselhasOnlyPlaceholder)
+						{
+							NoMoreGoIVA = true;
+							Warning("Disable GoIVA, it seems that this vessel has no IVA!", "QIVA");
+							return;
 						}
-					} else if (_VesselhasOnlyPlaceholder) {
-						NoMoreGoIVA = true;
-						Warning ("Disable GoIVA, it seems that this vessel has no IVA!", "QIVA");
-						return;
 					}
-				} else {
-					Warning ("Can't GoIVA, this vessel has no crew alive!", "QIVA");
+					else
+					{
+						Warning("Can't GoIVA, this vessel has no crew alive!", "QIVA");
+					}
 				}
-			} else {
-				NoMoreGoIVA = true;
-				Warning ("Disable GoIVA, this vessel has no crew!", "QIVA");
-				return;
+				else
+				{
+					NoMoreGoIVA = true;
+					Warning("Disable GoIVA, this vessel has no crew!", "QIVA");
+					return;
+				}
 			}
 			if (isGoneIVA) {
 				EVAKerbal = null;
@@ -373,11 +403,14 @@ namespace QuickIVA {
 				DisableThirdPersonVessel (false);
 				DisableMapView (false);
 				DisableToggleUI (false);
-				Warning ("Can't Go IVA now!", "QIVA");
+				if (!probeControlRoomInstalled)
+					Warning("Can't Go IVA now!", "QIVA");
+				else
+					Warning("Probe Controlled from Control Room", "QIVA");
 			}
 		}
 
-
+		bool probeControlRoomInstalled = false;
 		protected override void Awake() {
 			if (!HighLogic.LoadedSceneIsFlight) {
 				Warning ("It's not flight ? Destroy !", "QIVA");
@@ -400,7 +433,10 @@ namespace QuickIVA {
 			GameEvents.OnCameraChange.Add (OnCameraChange);
 			GameEvents.OnMapEntered.Add (OnMapEntered);
 			GameEvents.OnMapExited.Add (OnMapExited);
-			Log ("Awake", "QIVA");
+
+			probeControlRoomInstalled = SpaceTuxUtility.HasMod.hasMod("ProbeControlRoom");
+
+            Log ("Awake", "QIVA");
 		}
 
 		protected override void Start() {
@@ -442,17 +478,30 @@ namespace QuickIVA {
 				yield break;
 			}
 			while (!FlightGlobals.ready) {
-				yield return 0;
+				yield return new WaitForSeconds(0.1f);
+                //yield return 0;
+            }
+            while (FlightGlobals.ActiveVessel == null) {
+                yield return new WaitForSeconds(0.1f);
+				//yield return 0;
 			}
-			while (FlightGlobals.ActiveVessel == null) {
-				yield return 0;
+			
+			if (!probeControlRoomInstalled)
+			{
+
+                Vessel _vessel = FlightGlobals.ActiveVessel;
+				Kerbal _first;
+				bool _crewAreLoaded = false;
+				while (!VesselHasCrewAlive(_vessel, out _first, out _crewAreLoaded) || !_crewAreLoaded)
+				{
+					yield return new WaitForSeconds(0.5f);
+					yield return 0;
+				}
 			}
-			Vessel _vessel = FlightGlobals.ActiveVessel;
-			Kerbal _first;
-			bool _crewAreLoaded = false;
-			while (!VesselHasCrewAlive(_vessel, out _first, out _crewAreLoaded) || !_crewAreLoaded) {
-				yield return new WaitForSeconds (0.5f);
-				yield return 0;
+			else
+			{
+				Log("Waiting for 5 seconds", "QIVA", true);
+				yield return new WaitForSeconds(5f);
 			}
 			GoIVA (FlightGlobals.ActiveVessel);
 			Log ("WaitCrew", "QIVA");
