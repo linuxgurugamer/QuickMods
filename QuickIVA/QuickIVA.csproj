@@ -91,7 +91,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SpaceTuxUtility">
-      <HintPath>R:\KSP_1.12.5-dev\GameData\SpaceTuxLibrary\Plugins\SpaceTuxUtility.dll</HintPath>
+      <HintPath>"$(KSPDIR)\GameData\SpaceTuxLibrary\Plugins\SpaceTuxUtility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="ClickThroughBlocker, Version=0.1.6.3, Culture=neutral, processorArchitecture=MSIL">
