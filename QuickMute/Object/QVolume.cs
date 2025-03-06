@@ -69,13 +69,17 @@ namespace QuickMute.Object {
 
         public void Restore() {
             if (GameSettings.Ready) {
+<<<<<<< HEAD
                 Debug.Log("QuickMute.Restore, isMute: " + isMute + ", master: " + master);
                 Debug.Log("StackTrace: " + Environment.StackTrace);
 
                 GameSettings.MASTER_VOLUME = master;
+=======
+                GameSettings.MASTER_VOLUME = Mathf.Clamp(master, 0, 1);
+>>>>>>> af0931935eca0187ce28121388ffb3312ff14a2f
                 GameSettings.SaveSettings();
             } else {
-                QSettings.Instance.Master = master;
+                QSettings.Instance.Master = Mathf.Clamp(master, 0, 1);
                 QSettings.Instance.Save();
             }
         }
