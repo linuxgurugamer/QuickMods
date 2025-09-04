@@ -24,7 +24,7 @@ QuickRevert is a small plugin which adds the possibility to keep the revert func
 
 You will lose the revert function if:
 * you launch a new vessel,
-* (optionnal) you can lose the revert if you escape the atmosphere.
+* (optional) you can lose the revert if you escape the atmosphere.
 
 You will keep the revert function if:
 * you go to the space center or on another vessel,
@@ -168,3 +168,4 @@ v1.00 - 2014.10.01
 * Toolbar: http://forum.kerbalspaceprogram.com/index.php?/topic/55420-1
 * Language Patches Project: http://forum.kerbalspaceprogram.com/index.php?/topic/85611-l
 * Faenza icon theme: http://gnome-look.org/content/show.php/Faenza?content=128143
+
