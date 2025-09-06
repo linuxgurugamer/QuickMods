@@ -1,4 +1,4 @@
-﻿#### QuickExit
+﻿# QuickExit
 #### A plugin for Kerbal Space Program
 #### Copyright 2017 Malah
 
@@ -148,3 +148,4 @@ v1.00 - 2014.11.16
 * Language Patches Project: http://forum.kerbalspaceprogram.com/index.php?/topic/85611-l
 * Toolbar: http://forum.kerbalspaceprogram.com/index.php?/topic/55420-1
 * Faenza icon theme: http://gnome-look.org/content/show.php/Faenza?content=128143
+
