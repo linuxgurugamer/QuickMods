@@ -1,5 +1,11 @@
 ﻿#### Changelog
 
+
+QuickMods 1.4.0.17
+	QuickGoTo 1.4.0.14 (unreleased)
+		Thanks to github user @Clayell for this:
+			Add UI_Scale for shifting QuickGoTo button
+
 QuickMods 1.4.0.16
 	QuickGoTo 1.4.0.13
 		Added check for RP-1 to move button over in Mission Control and Admin building
