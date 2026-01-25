@@ -204,7 +204,9 @@ namespace QuickStart {
 					}
                     if (QSettings.Instance.evenlySpaceToggles)
                         GUILayout.FlexibleSpace();
-                    if (GUILayout.Toggle (QSettings.Instance.gameScene == (int)GameScenes.TRACKSTATION, Localizer.Format("quickstart_ts"), LabelWidth.TrackingStation)) {
+                    if (GUILayout.Toggle (QSettings.Instance.gameScene == (int)GameScenes.TRACKSTATION, Localizer.Format(
+							abbr ? "quickstart_ts_abbr" : "quickstart_ts"
+						), LabelWidth.TrackingStation)) {
 						if (QSettings.Instance.gameScene != (int)GameScenes.TRACKSTATION) {
 							QSettings.Instance.gameScene = (int)GameScenes.TRACKSTATION;
 						}
