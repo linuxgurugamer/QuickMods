@@ -225,7 +225,7 @@ namespace QuickSearch
                 GUILayout.BeginHorizontal();
                 QSettings.Instance.enableEnterToSearch = GUILayout.Toggle(QSettings.Instance.enableEnterToSearch, Localizer.Format("quicksearch_type"), GUILayout.Width(400));
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Time (in secs) to wait before starting search", GUILayout.Width(400));
+                GUILayout.Label(Localizer.Format("quicksearch_timeToWait"), GUILayout.Width(400));
                 GUILayout.EndHorizontal();
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(400);
