@@ -1,8 +1,16 @@
 ﻿#### Changelog
 
+QuickMods 1.4.0.18
+	QuickMute 1.4.0.10
+		Fixed log spam when clicking the button
+	Thanks to github user @Clayell for the following two updates:
+		QuickStart 2.2.1.4
+			Add abbreviation for tracking station
+		QuickGoTo 1.4.0.15
+			Add some spaces
 
 QuickMods 1.4.0.17
-	QuickGoTo 1.4.0.14 (unreleased)
+	QuickGoTo 1.4.0.14
 		Thanks to github user @Clayell for this:
 			Add UI_Scale for shifting QuickGoTo button
 

@@ -62,8 +62,6 @@ namespace QuickMute.Object {
         }
 
         public void Apply() {
-            Debug.Log("QuickMute.Apply, isMute: " + isMute + ", master: " + master);
-            Debug.Log("StackTrace: " +  Environment.StackTrace);
             GameSettings.MASTER_VOLUME = isMute ? 0 : master;
         }
 
