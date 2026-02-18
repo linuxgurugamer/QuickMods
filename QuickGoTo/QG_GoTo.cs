@@ -72,7 +72,7 @@ namespace QuickGoTo
                     return Localizer.Format("quickgoto_goto") + " " + Localizer.Format("quickgoto_sph");
                 case GoTo.LastVessel:
                     QData _lastVessel = LastVesselLastIndex();
-                    return Localizer.Format("quickgoto_goto") + " " + (_lastVessel != null && !force ? Localizer.Format("quickgoto_vessel") + " " + _lastVessel.protoVessel.vesselName : Localizer.Format("quickgoto_lastVessel"));
+                    return Localizer.Format("quickgoto_goto") + " " + (_lastVessel != null && !force ? Localizer.Format("quickgoto_vessel") + _lastVessel.protoVessel.vesselName : Localizer.Format("quickgoto_lastVessel"));
                 case GoTo.Recover:
                     return Localizer.Format("quickgoto_recover");
                 case GoTo.Revert:
@@ -86,7 +86,7 @@ namespace QuickGoTo
                 case GoTo.Settings:
                     return Localizer.Format("quickgoto_goto") + " " + Localizer.Format("quickgoto_toSettings");
                 case GoTo.Configurations:
-                    return RegisterToolbar.MOD + " " + Localizer.Format("quickgoto_settings");
+                    return RegisterToolbar.MOD + Localizer.Format("quickgoto_settings");
             }
             return string.Empty;
         }
