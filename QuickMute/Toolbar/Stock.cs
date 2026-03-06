@@ -91,6 +91,11 @@ namespace QuickMute
             QuickMute.Instance.Mute();
         }
         bool _isHovering = false;
+
+        void OnRightClick()
+        {
+            QuickMute.Instance.gui.Settings();
+        }
         void OnHover()
         {
             _isHovering = true;
@@ -129,7 +134,7 @@ namespace QuickMute
             if (toolbarControl == null)
             {
                 toolbarControl = gameObject.AddComponent<ToolbarControl>();
-                toolbarControl.AddToAllToolbars(OnClick, OnClick,
+                toolbarControl.AddToAllToolbars(null, null, //OnClick, OnClick,
                     OnHover, OnHoverOut, null, OnHide,
                     AppScenes,
                      MODID,
@@ -141,6 +146,7 @@ namespace QuickMute
                 Debug.Log("StockTexture: " + "QuickMods/" + QTexture.StockTexture);
                 Debug.Log("BlizzyTexture: " + "QuickMods/" + QTexture.BlizzyTexturePath);
             }
+            toolbarControl.AddLeftRightClickCallbacks(OnClick, OnRightClick);
             QDebug.Log("QStock.Init", "QStockToolbar");
         }
 

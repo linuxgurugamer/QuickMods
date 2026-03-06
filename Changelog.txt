@@ -1,5 +1,8 @@
 ﻿#### Changelog
 
+QuickMute 1.4.0.11 (unreleased)
+	Added right-click on the QuickMute toolbar button to show settings window
+
 QuickMods 1.4.0.18
 	QuickMute 1.4.0.10
 		Fixed log spam when clicking the button
