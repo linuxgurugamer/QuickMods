@@ -2,6 +2,9 @@
 
 QuickMute 1.4.0.19
 	Added right-click on the QuickMute toolbar button to show settings window
+	Thanks to github user @Clayell for this:
+		Add quicksearch_timeToWait localization for english and french
+	LGG added quicksearch_timeToWait localization for russian and chinese
 	Thanks to github user @infradmin4KSP for this:
 		Russian localization for all QuickMods
 			QuickStart 2.2.1.5
