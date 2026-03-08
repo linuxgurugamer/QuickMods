@@ -1,7 +1,22 @@
 ﻿#### Changelog
 
-QuickMute 1.4.0.11 (unreleased)
+QuickMute 1.4.0.19
 	Added right-click on the QuickMute toolbar button to show settings window
+	Thanks to github user @infradmin4KSP for this:
+		Russian localization for all QuickMods
+			QuickStart 2.2.1.5
+			QuickSearch 3.3.1.3
+			QuickSAS 1.2.0.12
+			QuickRevert 3.2.0.11
+			QuickMute 1.4.0.11
+			QuickIVA 1.3.0.11
+			QuickHide 3.3.0.14
+			QuickGoTo 1.4.0.12
+			QuickFineControl 1.1.0.10
+			QuickExit 2.2.0.12
+			QuickCursorHider 1.1.0.10
+			QuickContracts 1.3.0.11
+			QuickBrake 1.4.0.11
 
 QuickMods 1.4.0.18
 	QuickMute 1.4.0.10
