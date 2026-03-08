@@ -21,7 +21,7 @@ QuickIVA is a small plugin which adds a switch to the IVA at the loading or the 
 
 I suggest you to use the awesome mod RasterPropMonitor which makes the IVA usable.
 
-#### How does it work ?
+#### How does it work?
 
 It will put you on IVA at launch or at load. It will select preferably the first Pilot on a pod or the first Kerbal on a pod.
 
@@ -29,7 +29,7 @@ It will not put you on IVA, if there are:
 * no Kerbals alive on the vessel,
 * no IVA model.
 
-The HUD can be automaticaly hide and the others camera / MapView can be disabled.
+The HUD can be automatically hide and the others camera / MapView can be disabled.
 
 Keyboard shortcuts:
 * "end" to recovery,
@@ -154,3 +154,4 @@ v1.00 - 2015.02.07
 * Language Patches Project: http://forum.kerbalspaceprogram.com/index.php?/topic/85611-l
 * RasterPropMonitor: http://forum.kerbalspaceprogram.com/threads/117471
 * Probe Control Room: http://forum.kerbalspaceprogram.com/threads/67450
+

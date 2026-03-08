@@ -1,4 +1,4 @@
-﻿#### QuickSearch
+﻿# QuickSearch
 #### A plugin for Kerbal Space Program
 #### Copyright 2017 Malah
 
@@ -220,3 +220,4 @@ v0.10 - 2015.01.02
 * PartSearch: http://forum.kerbalspaceprogram.com/threads/102375
 * Part Search Plugin: http://forum.kerbalspaceprogram.com/threads/32983
 * Faenza icon theme: http://gnome-look.org/content/show.php/Faenza?content=128143
+
