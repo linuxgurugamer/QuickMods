@@ -117,6 +117,12 @@ namespace QuickStart {
 			while (HighLogic.LoadedSceneIsEditor && QSettings.Instance.enableEditorAutoSaveShip) {
 				QDebug.Log("autoSaveShip: before WaitForSeconds(" + QSettings.Instance.editorTimeToSave + ")", "QPersistent");
 				yield return new WaitForSeconds (QSettings.Instance.editorTimeToSave);
+				// Wait until no part is held, so the craft isn't saved in the middle of an edit.
+				do {
+					yield return new WaitForEndOfFrame();
+				} while (HighLogic.LoadedSceneIsEditor && EditorLogic.SelectedPart != null);
+				if (!HighLogic.LoadedSceneIsEditor)
+					break;
 				List<Part> parts = EditorLogic.fetch.ship != null ? EditorLogic.fetch.ship.Parts : new List<Part>();
 
 				if (parts.Count > 0)
@@ -124,7 +130,6 @@ namespace QuickStart {
 					QDebug.Log("autoSaveShip: before saveShip", "QPersistent");
 
 					//ShipConstruction.SaveShip(shipFilename);
-					yield return new WaitForEndOfFrame();
 					ShipConstruction.SaveShip(shipFilename); 
 					QDebug.Log("autoSaveShip: after saveShip", "QPersistent");
 				}
